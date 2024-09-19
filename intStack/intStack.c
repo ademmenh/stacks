@@ -3,8 +3,13 @@
 
 typedef struct intStack
 {
-    struct intStack *intStack;
+    struct intNode *intStack;
 } intStack;
+
+// bool funcintStackIsEmpty (intStack Stack)
+// {
+
+// }
 
 int main ()
 {
