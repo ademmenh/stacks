@@ -33,10 +33,28 @@ typedef struct charStack
 } charStack;
 
 
+
 void funccharStackInit (charStack *pStack)
 {
     pStack->H = NULL;
 }
 
+void funccharStackPush (charStack *pStack, char value)
+{
+
+    charNode *vpNew, *vpTemp;
 
 
+    if ( pStack==NULL )
+    {
+    
+        pStack->H = funccharNodeCreate (value); 
+        // pStack->H->Next = NULL;
+    }
+    else
+    {
+        vpTemp = pStack->H;
+        pStack->H = funcharNodeCreate (value);
+        pStack->H->Next = vpTemp;
+    }
+}
