@@ -96,3 +96,102 @@ bool funcfloatStackEmpty (floatStack Stack)
     }
 }
 
+
+
+float funcfloatInput ()
+{
+    float vfInput;
+    printf ("Enter your value: ");
+    scanf ("%f", &vfInput);
+    
+    return vfInput;
+}
+
+void funcfloatStackCreate (floatStack *pStack, int stackSize)
+{
+
+    float vfInput;
+    int viCn;
+    for ( viCn=0; viCn<stackSize; viCn++ )
+    {
+        // printf ("the current size is: %d.\n", pList->length);
+        vfInput = funcfloatInput();
+        funcfloatStackPush (pStack, vfInput);
+    }
+}
+
+void funcfloatStackDisplay (floatStack Stack)
+{
+    floatNode *vpCn;
+    int viCn;
+
+
+    if ( funcfloatStackEmpty(Stack) )
+    {
+        printf ("The List is Empty!");
+        return;
+    }
+
+
+    vpCn = Stack.H;
+    viCn = 0;
+    while ( vpCn!=NULL )
+    {
+        printf ("The value n %d is: %f.\n", viCn, vpCn->Value);
+        viCn++;
+        vpCn = vpCn->Next;
+    }
+
+}
+
+
+
+int main ()
+{
+
+    floatStack vsFloats;
+    funcfloatStackInit (&vsFloats);
+
+    
+    printf ("Creating intStack:\n");
+    funcfloatStackCreate (&vsFloats, 5);
+    printf ("\n\n");
+    
+
+
+    printf ("Displaying the Stack:\n");
+    funcfloatStackDisplay (vsFloats);
+    printf ("\n\n");
+
+
+
+    printf ("Pushing some values:\n");
+    funcfloatStackPush (&vsFloats, 10);
+    funcfloatStackPush (&vsFloats, 11);
+    funcfloatStackPush (&vsFloats, 12);
+    printf ("\n\n");
+
+
+
+    printf ("Displaying the Stack:\n");
+    funcfloatStackDisplay (vsFloats);
+    printf ("\n\n");
+
+
+    
+    float holder;
+    printf ("Poping some values:\n");
+    funcfloatStackPop (&vsFloats, &holder);
+    funcfloatStackPop (&vsFloats, &holder);
+    printf ("\n\n");
+
+
+
+    printf ("Displaying the Stack:\n");
+    funcfloatStackDisplay (vsFloats);
+    printf ("\n\n");
+
+
+
+    return 0;
+}
