@@ -88,3 +88,17 @@ void funccharStackTop (charStack Stack, char *pholder)
 
     (*pholder) = (Stack.H)->Value;
 }
+
+bool funccharStackEmpty (charStack Stack)
+{
+    if ( Stack.H==NULL )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+
