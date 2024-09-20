@@ -54,3 +54,22 @@ void funcfloatStackPush (floatStack *pStack, float value)
     }
 }
 
+void funcfloatStackPop (floatStack *pStack, float *pholder)
+{
+
+    if ( pStack->H==NULL )
+    {
+        printf ("the stack is alredy empty !");
+        exit (1);
+    }
+
+
+    floatNode *vpTemp;
+    
+    (*pholder) = pStack->H->Value;
+    vpTemp = pStack->H;
+    pStack->H = pStack->H->Next;
+
+    funcfloatNodeFree (vpTemp);
+}
+
