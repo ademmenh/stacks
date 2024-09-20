@@ -27,3 +27,16 @@
 
 
 
+typedef struct charStack
+{
+    charNode *H;
+} charStack;
+
+
+void funccharStackInit (charStack *pStack)
+{
+    pStack->H = NULL;
+}
+
+
+
