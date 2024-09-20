@@ -76,15 +76,6 @@ bool funcintStackEmpty (intStack Stack)
 
 
 
-int funcintInput ()
-{
-    int viInput;
-    printf ("Enter your value: ");
-    scanf ("%d", &viInput);
-    
-    return viInput;
-}
-
 void funcintStackCreate (intStack *pStack, int stackSize)
 {
     int viInput;
@@ -135,6 +126,34 @@ int main ()
     funcintStackCreate (&vsIntigers, 5);
     printf ("\n\n");
     
+
+
+    printf ("Displaying the Stack:\n");
+    funcintStackDisplay (vsIntigers);
+    printf ("\n\n");
+
+
+
+    printf ("Pushing some values:\n");
+    funcintStackPush (&vsIntigers, 10);
+    funcintStackPush (&vsIntigers, 11);
+    funcintStackPush (&vsIntigers, 12);
+    printf ("\n\n");
+
+
+
+    printf ("Displaying the Stack:\n");
+    funcintStackDisplay (vsIntigers);
+    printf ("\n\n");
+
+
+    
+    int holder;
+    printf ("Poping some values:\n");
+    funcintStackPop (&vsIntigers, &holder);
+    funcintStackPop (&vsIntigers, &holder);
+    printf ("\n\n");
+
 
 
     printf ("Displaying the Stack:\n");
