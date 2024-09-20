@@ -27,7 +27,7 @@
 
 typedef struct floatStack
 {
-    float *H;
+    floatNode *H;
 } floatStack;
 
 void funcfloatStackInit (floatStack *pStack)
@@ -35,5 +35,22 @@ void funcfloatStackInit (floatStack *pStack)
     pStack->H = NULL;
 }
 
+void funcfloatStackPush (floatStack *pStack, float value)
+{
 
+    floatNode *vpNew, *vpTemp;
+
+
+    if ( pStack->H==NULL )
+    {
+        pStack->H = funcfloatNodeCreate (value);
+    //  pStack->H->Value = NULL; (done by funcfloatNodeCreate)
+    }
+    else
+    {
+        vpTemp = pStack->H;
+        pStack->H = funcfloatNodeCreate (value);
+        pStack->H->Next = vpTemp;
+    }
+}
 
