@@ -54,7 +54,7 @@ void funccharStackPush (charStack *pStack, char value)
     else
     {
         vpTemp = pStack->H;
-        pStack->H = funcharNodeCreate (value);
+        pStack->H = funccharNodeCreate (value);
         pStack->H->Next = vpTemp;
     }
 }
@@ -102,3 +102,106 @@ bool funccharStackEmpty (charStack Stack)
 }
 
 
+
+char funccharInput ()
+{
+
+    char vcChar, vcBuffer;
+
+    printf ("Enter the value: ");
+    vcChar = getchar(); // fgetc (stdin)
+    vcBuffer = vcChar;
+    while (vcBuffer!='\n')
+    {vcBuffer = getchar();}
+
+    return vcChar;
+}
+
+void funccharStackCreate (charStack *pStack, int stackSize)
+{
+
+    char vcInput;
+    int viCn;
+    for ( viCn=0; viCn<stackSize; viCn++ )
+    {
+        // printf ("the current size is: %d.\n", pList->length);
+        vcInput = funccharInput();
+        funccharStackPush (pStack, vcInput);
+    }
+}
+
+void funccharStackDisplay (charStack Stack)
+{
+    charNode *vpCn;
+    int viCn;
+
+
+    if ( funccharStackEmpty(Stack) )
+    {
+        printf ("The List is Empty!");
+        return;
+    }
+
+
+    vpCn = Stack.H;
+    viCn = 0;
+    while ( vpCn!=NULL )
+    {
+        printf ("The value n %d is: %c.\n", viCn, vpCn->Value);
+        viCn++;
+        vpCn = vpCn->Next;
+    }
+
+}
+
+
+
+int main ()
+{
+
+    charStack vsIntigers;
+    funccharStackInit (&vsIntigers);
+
+    
+    printf ("Creating intStack:\n");
+    funccharStackCreate (&vsIntigers, 1);
+    printf ("\n\n");
+    
+
+
+    printf ("Displaying the Stack:\n");
+    funccharStackDisplay (vsIntigers);
+    printf ("\n\n");
+
+
+
+    printf ("Pushing some values:\n");
+    funccharStackPush (&vsIntigers, 'A');
+    funccharStackPush (&vsIntigers, 'B');
+    funccharStackPush (&vsIntigers, 'C');
+    printf ("\n\n");
+
+
+
+    printf ("Displaying the Stack:\n");
+    funccharStackDisplay (vsIntigers);
+    printf ("\n\n");
+
+
+    
+    char holder;
+    printf ("Poping some values:\n");
+    funccharStackPop (&vsIntigers, &holder);
+    funccharStackPop (&vsIntigers, &holder);
+    printf ("\n\n");
+
+
+
+    printf ("Displaying the Stack:\n");
+    funccharStackDisplay (vsIntigers);
+    printf ("\n\n");
+
+
+
+    return 0;
+}
