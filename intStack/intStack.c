@@ -32,7 +32,23 @@ void funcintStackPush (intStack *pStack, int value)
     }
 }
 
+void funcintStackPop (intStack *pStack, int *pholder)
+{
 
+    if ( pStack==NULL )
+    {
+        printf ("the stack is alredy empty !");
+        exit (1);
+    }
+
+
+    intNode *vpTemp;
+    
+    vpTemp = (*pStack);
+    (*pStack) = (*pStack)->Next;
+    funcintNodeFree (vpTemp); 
+
+}
 
 
 
