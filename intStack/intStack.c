@@ -62,6 +62,18 @@ void funcintStackTop (intStack Stack, int *pholder)
     (*pholder) = Stack->Value;
 }
 
+bool funcintStackEmpty (intStack Stack)
+{
+    if ( Stack==NULL )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 
 
 int main ()
