@@ -98,6 +98,30 @@ void funcintStackCreate (intStack *pStack, int stackSize)
     }
 }
 
+void funcintStackDisplay (intStack Stack)
+{
+    intNode *vpCn;
+    int viCn;
+
+
+    if ( funcintStackEmpty(Stack) )
+    {
+        printf ("The List is Empty!");
+        return;
+    }
+
+
+    vpCn = Stack;
+    viCn = 0;
+    while ( vpCn!=NULL )
+    {
+        printf ("The value n %d is: %d.\n", viCn, vpCn->Value);
+        viCn++;
+        vpCn = vpCn->Next;
+    }
+
+}
+
 
 
 int main ()
