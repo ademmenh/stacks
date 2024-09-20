@@ -58,3 +58,23 @@ void funccharStackPush (charStack *pStack, char value)
         pStack->H->Next = vpTemp;
     }
 }
+
+void funccharStackPop (charStack *pStack, char *pholder)
+{
+
+    if ( pStack->H==NULL )
+    {
+        printf ("the stack is alredy empty !");
+        exit (1);
+    }
+
+
+    charNode *vpTemp;
+    
+    (*pholder) = pStack->H->Value;
+    vpTemp = pStack->H;
+    pStack->H = pStack->H->Next;
+
+    funccharNodeFree (vpTemp);
+}
+
