@@ -25,5 +25,15 @@
 
 
 
+typedef struct floatStack
+{
+    float *H;
+} floatStack;
+
+void funcfloatStackInit (floatStack *pStack)
+{
+    pStack->H = NULL;
+}
+
 
 
