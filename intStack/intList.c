@@ -1,9 +1,22 @@
 
-#define intListIsImported
+#ifndef intListIsImported
+    #define intListIsImported
+#endif
 
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef stdboolIsImported
+    #define stdboolIsImported
+    #include <stdbool.h>
+#endif
+
+#ifndef stdioIsImported
+    #define stdioIsImported
+    #include <stdio.h>
+#endif
+
+#ifndef stdlibIsImported
+    #define stdlibIsImported
+    #include <stdlib.h>
+#endif
 
 
 
