@@ -1,17 +1,22 @@
-#include "intList.c"
+
+#ifndef intListIsImported
+    #include "intList.c"
+#endif
 
 
-typedef struct intStack
-{
-    struct intNode *intStack;
-} intStack;
+typedef intNode *intStack;
 
-// bool funcintStackIsEmpty (intStack Stack)
-// {
 
-// }
+
+
+
+
+
+
 
 int main ()
 {
+    
+    
     return 0;
 }
