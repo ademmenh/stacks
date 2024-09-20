@@ -78,3 +78,13 @@ void funccharStackPop (charStack *pStack, char *pholder)
     funccharNodeFree (vpTemp);
 }
 
+void funccharStackTop (charStack Stack, char *pholder)
+{
+    if ( Stack.H==NULL )
+    {
+        printf ("the stack is already empty !");
+        exit (1);
+    }
+
+    (*pholder) = (Stack.H)->Value;
+}
