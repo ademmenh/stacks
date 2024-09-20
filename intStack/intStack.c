@@ -7,9 +7,9 @@
 typedef intNode *intStack;
 
 
-void funcintStackInit (intStack Stack)
+void funcintStackInit (intStack *pStack)
 {
-    Stack = NULL;
+    *pStack = NULL;
 }
 
 void funcintStackPush (intStack *pStack, int value)
@@ -127,12 +127,21 @@ void funcintStackDisplay (intStack Stack)
 int main ()
 {
 
-    // intStack vlIntigers;
-
-    // funcintStackInit (&vlIntigers);
-
+    intStack vsIntigers;
+    funcintStackInit (&vsIntigers);
 
     
+    printf ("Creating intStack:\n");
+    funcintStackCreate (&vsIntigers, 5);
+    printf ("\n\n");
     
+
+
+    printf ("Displaying the Stack:\n");
+    funcintStackDisplay (vsIntigers);
+    printf ("\n\n");
+
+
+
     return 0;
 }
