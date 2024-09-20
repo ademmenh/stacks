@@ -84,5 +84,15 @@ void funcfloatStackTop (floatStack Stack, float *pholder)
     (*pholder) = (Stack.H)->Value;
 }
 
-
+bool funcfloatStackEmpty (floatStack Stack)
+{
+    if ( Stack.H==NULL )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
 
