@@ -1,15 +1,39 @@
 
+#ifndef intStackIsImported
+    #define intStackIsImported
+#endif
+
+#ifndef stdboolIsImported
+    #define stdboolIsImported
+    #include <stdbool.h>
+#endif
+
+#ifndef stdioIsImported
+    #define stdioIsImported
+    #include <stdio.h>
+#endif
+
+#ifndef stdlibIsImported
+    #define stdlibIsImported
+    #include <stdlib.h>
+#endif
+
 #ifndef intListIsImported
+    #define intListIsImported
     #include "intList.c"
 #endif
 
 
-typedef intNode *intStack;
+
+typedef struct intStack
+{
+    intNode *H;
+} intStack;
 
 
 void funcintStackInit (intStack *pStack)
 {
-    *pStack = NULL;
+    pStack->H = NULL;
 }
 
 void funcintStackPush (intStack *pStack, int value)
@@ -21,21 +45,21 @@ void funcintStackPush (intStack *pStack, int value)
     if ( pStack==NULL )
     {
     
-        (*pStack) = funcintNodeCreate (value); 
-        (*pStack)->Next = NULL;
+        pStack->H = funcintNodeCreate (value); 
+        pStack->H->Next = NULL;
     }
     else
     {
-        vpTemp = (*pStack);
-        (*pStack) = funcintNodeCreate (value);
-        (*pStack)->Next = vpTemp;
+        vpTemp = pStack->H;
+        pStack->H = funcintNodeCreate (value);
+        pStack->H->Next = vpTemp;
     }
 }
 
 void funcintStackPop (intStack *pStack, int *pholder)
 {
 
-    if ( (*pStack)==NULL )
+    if ( pStack->H==NULL )
     {
         printf ("the stack is alredy empty !");
         exit (1);
@@ -44,27 +68,27 @@ void funcintStackPop (intStack *pStack, int *pholder)
 
     intNode *vpTemp;
     
-    (*pholder) = (*pStack)->Value;
-    vpTemp = (*pStack);
-    (*pStack) = (*pStack)->Next;
+    (*pholder) = pStack->H->Value;
+    vpTemp = pStack->H;
+    pStack->H = pStack->H->Next;
 
     funcintNodeFree (vpTemp);
 }
 
 void funcintStackTop (intStack Stack, int *pholder)
 {
-    if ( Stack==NULL )
+    if ( Stack.H==NULL )
     {
         printf ("the stack is already empty !");
         exit (1);
     }
 
-    (*pholder) = Stack->Value;
+    (*pholder) = (Stack.H)->Value;
 }
 
 bool funcintStackEmpty (intStack Stack)
 {
-    if ( Stack==NULL )
+    if ( Stack.H==NULL )
     {
         return true;
     }
@@ -78,9 +102,9 @@ bool funcintStackEmpty (intStack Stack)
 
 void funcintStackCreate (intStack *pStack, int stackSize)
 {
+
     int viInput;
     int viCn;
-    
     for ( viCn=0; viCn<stackSize; viCn++ )
     {
         // printf ("the current size is: %d.\n", pList->length);
@@ -102,7 +126,7 @@ void funcintStackDisplay (intStack Stack)
     }
 
 
-    vpCn = Stack;
+    vpCn = Stack.H;
     viCn = 0;
     while ( vpCn!=NULL )
     {
