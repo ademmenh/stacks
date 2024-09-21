@@ -1,6 +1,6 @@
 
-#ifndef charStackIsImported
-    #define charStackIsImported
+#ifndef _charSTACK_C
+    #define _charSTACK_C
 #endif
 
 #ifndef _STDBOOL_H
@@ -15,7 +15,7 @@
     #include <stdlib.h>
 #endif
 
-#ifndef charListIsImported
+#ifndef _charLIST_C
     #include "charList.c"
 #endif
 

@@ -1,6 +1,6 @@
 
-#ifndef floatStackIsImported
-    #define floatStackIsImported
+#ifndef _floatSTACK_C
+    #define _floatSTACK_C
 #endif
 
 #ifndef _STDBOOL_H
@@ -15,7 +15,7 @@
     #include <stdlib.h>
 #endif
 
-#ifndef floatListIsImported
+#ifndef _floatLIST_C
     #include "floatList.c"
 #endif
 

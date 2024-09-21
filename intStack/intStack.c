@@ -1,6 +1,6 @@
 
-#ifndef intStackIsImported
-    #define intStackIsImported
+#ifndef _intSTACK_C
+    #define _intSTACK_C
 #endif
 
 #ifndef _STDBOOL_H
@@ -15,7 +15,7 @@
     #include <stdlib.h>
 #endif
 
-#ifndef intListIsImported
+#ifndef _intLIST_C
     #include "intList.c"
 #endif
 
