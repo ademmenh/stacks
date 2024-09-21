@@ -3,23 +3,19 @@
     #define charStackIsImported
 #endif
 
-#ifndef stdboolIsImported
-    #define stdboolIsImported
+#ifndef _STDBOOL_H
     #include <stdbool.h>
 #endif
 
-#ifndef stdioIsImported
-    #define stdioIsImported
+#ifndef _STDIO_H
     #include <stdio.h>
 #endif
 
-#ifndef stdlibIsImported
-    #define stdlibIsImported
+#ifndef _STDLIB_H
     #include <stdlib.h>
 #endif
 
 #ifndef charListIsImported
-    #define charListIsImported
     #include "charList.c"
 #endif
 
