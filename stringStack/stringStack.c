@@ -73,6 +73,17 @@ void funcstringStackPop (stringStack *pStack, string *pholder)
     funcstringNodeFree (vpTemp);
 }
 
+void funstringtStackTop (stringStack Stack, string *pholder)
+{
+    if ( Stack.H==NULL )
+    {
+        printf ("the stack is already empty !");
+        exit (1);
+    }
+
+    (*pholder) = (Stack.H)->Value;
+}
+
 bool funcstringStackEmpty (stringStack Stack)
 {
     if ( Stack.H==NULL )
