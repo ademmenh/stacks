@@ -96,3 +96,42 @@ bool funcstringStackEmpty (stringStack Stack)
     }
 }
 
+
+
+void funcstringStackCreate (stringStack *pStack, int stackSize)
+{
+
+    string vsInput;
+    int viCn;
+    for ( viCn=0; viCn<stackSize; viCn++ )
+    {
+        // printf ("the current size is: %d.\n", pList->length);
+        funcintInput(&vsInput);
+        funcstringStackPush (pStack, vsInput);
+    }
+}
+
+void funcintStackDisplay (stringStack Stack)
+{
+    stringNode *vpCn;
+    int viCn;
+
+
+    if ( funcstringStackEmpty(Stack) )
+    {
+        printf ("The List is Empty!");
+        return;
+    }
+
+
+    vpCn = Stack.H;
+    viCn = 0;
+    while ( vpCn!=NULL )
+    {
+        printf ("The value n %d is: %d.\n", viCn, vpCn->Value);
+        viCn++;
+        vpCn = vpCn->Next;
+    }
+
+}
+
