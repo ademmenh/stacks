@@ -54,6 +54,25 @@ void funcstringStackPush (stringStack *pStack, string value)
     }
 }
 
+void funcstringStackPop (stringStack *pStack, string *pholder)
+{
+
+    if ( pStack->H==NULL )
+    {
+        printf ("the stack is alredy empty !");
+        exit (1);
+    }
+
+
+    stringNode *vpTemp;
+    
+    (*pholder) = pStack->H->Value;
+    vpTemp = pStack->H;
+    pStack->H = pStack->H->Next;
+
+    funcstringNodeFree (vpTemp);
+}
+
 bool funcstringStackEmpty (stringStack Stack)
 {
     if ( Stack.H==NULL )
