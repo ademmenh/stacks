@@ -34,6 +34,26 @@ void funcstringStackInit (stringStack *pStack)
     pStack->H = NULL;
 }
 
+void funcstringStackPush (stringStack *pStack, string value)
+{
+
+    stringNode *vpNew, *vpTemp;
+
+
+    if ( pStack==NULL )
+    {
+    
+        pStack->H = funcstringNodeCreate (value); 
+        pStack->H->Next = NULL;
+    }
+    else
+    {
+        vpTemp = pStack->H;
+        pStack->H = funcstringNodeCreate (value);
+        pStack->H->Next = vpTemp;
+    }
+}
+
 bool funcstringStackEmpty (stringStack Stack)
 {
     if ( Stack.H==NULL )
@@ -45,3 +65,4 @@ bool funcstringStackEmpty (stringStack Stack)
         return false;
     }
 }
+
