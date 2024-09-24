@@ -28,3 +28,20 @@ typedef struct stringStack
     stringNode *H;
 } stringStack;
 
+
+void funcstringStackInit (stringStack *pStack)
+{
+    pStack->H = NULL;
+}
+
+bool funcstringStackEmpty (stringStack Stack)
+{
+    if ( Stack.H==NULL )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
