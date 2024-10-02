@@ -1,7 +1,5 @@
 
-#ifndef _intSTACK_C
-    #define _intSTACK_C
-#endif
+#define _intSTACK_C
 
 #ifndef _STDBOOL_H
     #include <stdbool.h>
@@ -133,56 +131,4 @@ void funcintStackDisplay (intStack Stack)
         vpCn = vpCn->Next;
     }
 
-}
-
-
-
-int main ()
-{
-
-    intStack vsIntigers;
-    funcintStackInit (&vsIntigers);
-
-    
-    printf ("Creating intStack:\n");
-    funcintStackCreate (&vsIntigers, 5);
-    printf ("\n\n");
-    
-
-
-    printf ("Displaying the Stack:\n");
-    funcintStackDisplay (vsIntigers);
-    printf ("\n\n");
-
-
-
-    printf ("Pushing some values:\n");
-    funcintStackPush (&vsIntigers, 10);
-    funcintStackPush (&vsIntigers, 11);
-    funcintStackPush (&vsIntigers, 12);
-    printf ("\n\n");
-
-
-
-    printf ("Displaying the Stack:\n");
-    funcintStackDisplay (vsIntigers);
-    printf ("\n\n");
-
-
-    
-    int holder;
-    printf ("Poping some values:\n");
-    funcintStackPop (&vsIntigers, &holder);
-    funcintStackPop (&vsIntigers, &holder);
-    printf ("\n\n");
-
-
-
-    printf ("Displaying the Stack:\n");
-    funcintStackDisplay (vsIntigers);
-    printf ("\n\n");
-
-
-
-    return 0;
 }

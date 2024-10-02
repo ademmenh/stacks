@@ -1,7 +1,5 @@
 
-#ifndef _stringSTACK_C
-    #define _stringSTACK_C
-#endif
+#define _stringSTACK_C
 
 #ifndef _STDBOOL_H
     #include <stdbool.h>
@@ -134,4 +132,3 @@ void funcintStackDisplay (stringStack Stack)
     }
 
 }
-

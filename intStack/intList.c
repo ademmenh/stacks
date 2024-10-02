@@ -1,7 +1,5 @@
 
-#ifndef _intLIST_C
-    #define _intLIST_C
-#endif
+#define _intLIST_C
 
 #ifndef _STDBOOL_H
     #include <stdbool.h>
@@ -290,14 +288,16 @@ void funcintListClear (intList *pList)
 
 
 
-int funcintInput ()
-{
-    int viInput;
-    printf ("Enter your value: ");
-    scanf ("%d", &viInput);
+#ifndef _func_INTINPUT
+    int funcintInput ()
+    {
+        int viInput;
+        printf ("Enter your value: ");
+        scanf ("%d", &viInput);
     
-    return viInput;
-}
+        return viInput;
+    }
+#endif
 
 void funcintListCreateFIFO (intList *pList, int Listsize)
 {

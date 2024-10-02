@@ -1,7 +1,6 @@
 
-#ifndef _charSTACK_C
-    #define _charSTACK_C
-#endif
+
+#define _charSTACK_C
 
 #ifndef _STDBOOL_H
     #include <stdbool.h>
@@ -98,20 +97,21 @@ bool funccharStackEmpty (charStack Stack)
 }
 
 
+#ifndef _func_CHARINPUT
+    char funccharInput ()
+    {
 
-char funccharInput ()
-{
+        char vcChar, vcBuffer;
 
-    char vcChar, vcBuffer;
+        printf ("Enter the value: ");
+        vcChar = getchar(); // fgetc (stdin)
+        vcBuffer = vcChar;
+        while (vcBuffer!='\n')
+        {vcBuffer = getchar();}
 
-    printf ("Enter the value: ");
-    vcChar = getchar(); // fgetc (stdin)
-    vcBuffer = vcChar;
-    while (vcBuffer!='\n')
-    {vcBuffer = getchar();}
-
-    return vcChar;
-}
+        return vcChar;
+    }
+#endif
 
 void funccharStackCreate (charStack *pStack, int stackSize)
 {
@@ -150,54 +150,3 @@ void funccharStackDisplay (charStack Stack)
 
 }
 
-
-
-int main ()
-{
-
-    charStack vsIntigers;
-    funccharStackInit (&vsIntigers);
-
-    
-    printf ("Creating intStack:\n");
-    funccharStackCreate (&vsIntigers, 1);
-    printf ("\n\n");
-    
-
-
-    printf ("Displaying the Stack:\n");
-    funccharStackDisplay (vsIntigers);
-    printf ("\n\n");
-
-
-
-    printf ("Pushing some values:\n");
-    funccharStackPush (&vsIntigers, 'A');
-    funccharStackPush (&vsIntigers, 'B');
-    funccharStackPush (&vsIntigers, 'C');
-    printf ("\n\n");
-
-
-
-    printf ("Displaying the Stack:\n");
-    funccharStackDisplay (vsIntigers);
-    printf ("\n\n");
-
-
-    
-    char holder;
-    printf ("Poping some values:\n");
-    funccharStackPop (&vsIntigers, &holder);
-    funccharStackPop (&vsIntigers, &holder);
-    printf ("\n\n");
-
-
-
-    printf ("Displaying the Stack:\n");
-    funccharStackDisplay (vsIntigers);
-    printf ("\n\n");
-
-
-
-    return 0;
-}

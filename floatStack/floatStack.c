@@ -1,7 +1,6 @@
 
-#ifndef _floatSTACK_C
-    #define _floatSTACK_C
-#endif
+
+#define _floatSTACK_C
 
 #ifndef _STDBOOL_H
     #include <stdbool.h>
@@ -97,15 +96,16 @@ bool funcfloatStackEmpty (floatStack Stack)
 }
 
 
-
-float funcfloatInput ()
-{
-    float vfInput;
-    printf ("Enter your value: ");
-    scanf ("%f", &vfInput);
+#ifndef _func_FLOATINPUT
+    float funcfloatInput ()
+    {
+        float vfInput;
+        printf ("Enter your value: ");
+        scanf ("%f", &vfInput);
     
-    return vfInput;
-}
+        return vfInput;
+    }
+#endif
 
 void funcfloatStackCreate (floatStack *pStack, int stackSize)
 {
@@ -144,54 +144,3 @@ void funcfloatStackDisplay (floatStack Stack)
 
 }
 
-
-
-int main ()
-{
-
-    floatStack vsFloats;
-    funcfloatStackInit (&vsFloats);
-
-    
-    printf ("Creating intStack:\n");
-    funcfloatStackCreate (&vsFloats, 5);
-    printf ("\n\n");
-    
-
-
-    printf ("Displaying the Stack:\n");
-    funcfloatStackDisplay (vsFloats);
-    printf ("\n\n");
-
-
-
-    printf ("Pushing some values:\n");
-    funcfloatStackPush (&vsFloats, 10);
-    funcfloatStackPush (&vsFloats, 11);
-    funcfloatStackPush (&vsFloats, 12);
-    printf ("\n\n");
-
-
-
-    printf ("Displaying the Stack:\n");
-    funcfloatStackDisplay (vsFloats);
-    printf ("\n\n");
-
-
-    
-    float holder;
-    printf ("Poping some values:\n");
-    funcfloatStackPop (&vsFloats, &holder);
-    funcfloatStackPop (&vsFloats, &holder);
-    printf ("\n\n");
-
-
-
-    printf ("Displaying the Stack:\n");
-    funcfloatStackDisplay (vsFloats);
-    printf ("\n\n");
-
-
-
-    return 0;
-}

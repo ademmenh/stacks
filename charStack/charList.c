@@ -1,7 +1,5 @@
 
-#ifndef _charLIST_C
-    #define _charLIST_C
-#endif
+#define _charLIST_C
 
 #ifndef _STDBOOL_H
     #include <stdbool.h>
@@ -120,12 +118,13 @@ void funccharNodeFree (charNode *pNode)
 }
 
 
-
+/*
 void funccharListInit (charList *pList)
 {
     pList->H = NULL;
     pList->length = 0;
 }
+*/
 
 bool funccharListIsEmpty (charList List)
 {
@@ -287,3 +286,126 @@ void funccharListClear (charList *pList)
     }
 }
 
+
+#ifndef _func_CHARINPUT
+    char funccharInput ()
+    {
+        char vcInput;
+        printf ("Enter your value: ");
+        scanf ("%c", &vcInput);
+    
+        return vcInput;
+    }
+#endif
+
+void funccharListCreateFIFO (charList *pList, int Listsize)
+{
+    char vcInput;
+    int viCn;
+    
+    for ( viCn=0; viCn<Listsize; viCn++ )
+    {
+        // printf ("the current size is: %d.\n", pList->length);
+        vcInput = funccharInput();
+        funccharListInsertEnd (pList, vcInput);
+    }
+}
+
+void funccharListCreateLIFO (charList *pList, int Listsize)
+{
+    int vcInput;
+    int viCn;
+
+    for ( viCn=0; viCn<Listsize; viCn++ )
+    {
+        // printf ("the current size is: %d.\n", pList->length);
+        vcInput = funccharInput();
+        funccharListInsertBeging (pList, vcInput);
+    }
+}
+
+void funccharListSort (charList *pList)
+{
+    charNode *vpCn1, *vpCn2, *vpMin;
+    char vcMin;
+
+    vpCn1 = pList->H;
+    while ( vpCn1!=NULL )
+    {
+
+        vpMin = vpCn1;
+        vcMin = vpCn1->Value;
+        vpCn2 = vpCn1->Next;
+        while ( vpCn2!=NULL )
+        {
+            if ( vpCn2->Value<vcMin )
+            {
+                vpMin = vpCn2;
+                vcMin = vpCn2->Value;
+            }
+ 
+            vpCn2 = vpCn2->Next;   
+        }
+
+        vpMin->Value = vpCn1->Value;
+        vpCn1->Value = vcMin;
+
+        vpCn1 = vpCn1->Next;
+    }
+}
+
+void funccharListSortReversed (charList *pList)
+{
+
+    charNode *vpCn1, *vpCn2, *vpMax;
+    char vcMax;
+
+    vpCn1 = pList->H;
+    while ( vpCn1!=NULL )
+    {
+
+        vpMax = vpCn1;
+        vcMax = vpCn1->Value;
+        vpCn2 = vpCn1->Next;
+        while ( vpCn2!=NULL )
+        {
+            if ( vcMax<vpCn2->Value )
+            {
+                vpMax = vpCn2;
+                vcMax = vpCn2->Value;
+            }
+
+            vpCn2 = vpCn2->Next;
+        }
+
+        vpMax->Value = vpCn1->Value;
+        vpCn1->Value = vcMax;
+        
+        vpCn1 = vpCn1->Next;
+    }
+}
+
+void funccharListDisplay (charList List)
+{
+
+    charNode *vpCn;
+    char viCn;
+
+
+    if ( List.length==0 )
+    {
+        printf ("The List is Empty!");
+        return;
+    }
+
+
+    vpCn = List.H;
+    viCn = 0;
+    while ( vpCn!=NULL && viCn<List.length )
+    {
+        printf ("The value n %d is: %c.\n", viCn, vpCn->Value);
+        viCn++;
+        vpCn = vpCn->Next;
+    }
+
+}

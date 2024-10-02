@@ -1,7 +1,5 @@
 
-#ifndef _floatLIST_C
-    #define _floatLIST_C
-#endif
+#define _floatLIST_C
 
 #ifndef _STDBOOL_H
     #include <stdbool.h>
@@ -287,3 +285,124 @@ void funcfloatListClear (floatList *pList)
     }
 }
 
+
+#ifndef _func_FLOATINPUT
+    float funcfloatInput ()
+    {
+        float vfInput;
+        printf ("Enter your value: ");
+        scanf ("%f", &vfInput);
+    
+        return vfInput;
+    }
+#endif
+
+void funcfloatListCreateFIFO (floatList *pList, int Listsize)
+{
+    float vfInput;
+    int viCn;
+    
+    for ( viCn=0; viCn<Listsize; viCn++ )
+    {
+        vfInput = funcfloatInput();
+        funcfloatListInsertEnd (pList, vfInput);
+    }
+}
+
+void funcfloatListCreateLIFO (floatList *pList, int Listsize)
+{
+    float vfInput;
+    int viCn;
+
+    for ( viCn=0; viCn<Listsize; viCn++ )
+    {
+        // printf ("the current size is: %d.\n", pList->length);
+        vfInput = funcfloatInput();
+        funcfloatListInsertBeging (pList, vfInput);
+    }
+}
+
+void funcfloatListSort (floatList *pList)
+{
+    floatNode *vpCn1, *vpCn2, *vpMin;
+    float vfMin;
+
+    vpCn1 = pList->H;
+    while ( vpCn1!=NULL )
+    {
+
+        vpMin = vpCn1;
+        vfMin = vpCn1->Value;
+        vpCn2 = vpCn1->Next;
+        while ( vpCn2!=NULL )
+        {
+            if ( vpCn2->Value<vfMin )
+            {
+                vpMin = vpCn2;
+                vfMin = vpCn2->Value;
+            }
+ 
+            vpCn2 = vpCn2->Next;   
+        }
+
+        vpMin->Value = vpCn1->Value;
+        vpCn1->Value = vfMin;
+
+        vpCn1 = vpCn1->Next;
+    }
+}
+
+void funcfloatListSortReversed (floatList *pList)
+{
+
+    floatNode *vpCn1, *vpCn2, *vpMax;
+    float vfMax;
+
+    vpCn1 = pList->H;
+    while ( vpCn1!=NULL )
+    {
+
+        vpMax = vpCn1;
+        vfMax = vpCn1->Value;
+        vpCn2 = vpCn1->Next;
+        while ( vpCn2!=NULL )
+        {
+            if ( vfMax<vpCn2->Value )
+            {
+                vpMax = vpCn2;
+                vfMax = vpCn2->Value;
+            }
+
+            vpCn2 = vpCn2->Next;
+        }
+
+        vpMax->Value = vpCn1->Value;
+        vpCn1->Value = vfMax;
+        
+        vpCn1 = vpCn1->Next;
+    }
+}
+
+void funcfloatListDisplay (floatList List)
+{
+    floatNode *vpCn;
+    int viCn;
+
+
+    if ( List.length==0 )
+    {
+        printf ("The List is Empty!");
+        return;
+    }
+
+
+    vpCn = List.H;
+    viCn = 0;
+    while ( vpCn!=NULL && viCn<List.length )
+    {
+        printf ("The value n %d is: %f.\n", viCn, vpCn->Value);
+        viCn++;
+        vpCn = vpCn->Next;
+    }
+
+}
