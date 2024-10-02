@@ -53,7 +53,6 @@ charNode* funccharNodeCreate (float value)
     return vpNew;
 }
 
-
 charNode* funccharNodePointer (charList List, int index)
 {
     if ( index<0 )
@@ -118,13 +117,12 @@ void funccharNodeFree (charNode *pNode)
 }
 
 
-/*
+
 void funccharListInit (charList *pList)
 {
     pList->H = NULL;
     pList->length = 0;
 }
-*/
 
 bool funccharListIsEmpty (charList List)
 {
