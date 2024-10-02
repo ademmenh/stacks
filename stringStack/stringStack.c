@@ -106,7 +106,7 @@ void funcstringStackCreate (stringStack *pStack, int stackSize)
     for ( viCn=0; viCn<stackSize; viCn++ )
     {
         // printf ("the current size is: %d.\n", pList->length);
-        funcintInput(&vsInput);
+        funcstringInput(&vsInput);
         funcstringStackPush (pStack, vsInput);
     }
 }

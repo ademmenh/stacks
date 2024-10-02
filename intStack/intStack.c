@@ -106,7 +106,6 @@ void funcintStackCreate (intStack *pStack, int stackSize)
     int viCn;
     for ( viCn=0; viCn<stackSize; viCn++ )
     {
-        // printf ("the current size is: %d.\n", pList->length);
         viInput = funcintInput();
         funcintStackPush (pStack, viInput);
     }
